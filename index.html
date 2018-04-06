@@ -30,7 +30,7 @@
 				COUNTDOWN TO LAUNCH
 			</h3>
 			<p class="txt-center m2-txt1 p-b-25">
-				EQUiSat has been delivered and is being integrated for launch on OA-9!
+				EQUiSat has been delivered and is being integrated for launch on OA-9
 			</p>			
 			<p class="txt-center">
 				<!-- <i class="zmdi zmdi-card-giftcard cl0 fs-60"></i> -->
@@ -66,6 +66,9 @@
 					<span class="m2-txt2">Seconds</span>
 				</div>
 			</div>
+			<p class="txt-center m2-txt1 p-b-25">
+				Check back after launch to track EQUiSat's location and view transmission data!
+			</p>
 			
 		</div>
 	</div>
@@ -87,15 +90,31 @@
 	<script src="vendor/countdowntime/moment-timezone-with-data.min.js"></script>
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 	<script>
+		var endYEAR = 2018
+		var endMONTH = 5
+		var endDAY = 20
+		var endHOUR = 5
+		var endMINUTE = 0 
+		var endSECOND = 0
+
+		var now = new Date();
+		var endDate = new Date(endYEAR, endMONTH-1, endDAY, endHOUR, endMINUTE, endSECOND);
+
+		var delta = (endDate.getTime() - now.getTime())/ 1000;
+		var days = Math.floor(delta / (60*60*24));
+		var hours = Math.floor((delta - (days*24*60*60))/(60*60));
+		var minutes = Math.floor((delta - (days*24*60 *60) - (hours*60*60))/60);		
+		var seconds = Math.floor(delta - (days*24*60 *60) - (hours*60*60) - (minutes * 60));
+
 		$('.cd100').countdown100({
 			/*Set Endtime here*/
 			/*Endtime must be > current time*/
 			endtimeYear: 0,
 			endtimeMonth: 0,
-			endtimeDate: 56,
-			endtimeHours: 6,
-			endtimeMinutes: 51,
-			endtimeSeconds: 15,
+			endtimeDate: days,
+			endtimeHours: hours,
+			endtimeMinutes: minutes,
+			endtimeSeconds: seconds,
 			timeZone: ""
 			// ex:  timeZone: "America/New_York"
 			//go to " http://momentjs.com/timezone/ " to get timezone

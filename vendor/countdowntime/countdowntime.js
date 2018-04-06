@@ -42,14 +42,18 @@
           
           initializeClock(deadline);
 
-          function getTimeRemaining(endtime) { 
-            var t = Date.parse(endtime) - Date.parse(new Date());
-            var seconds = Math.floor((t / 1000) % 60);
-            var minutes = Math.floor((t / 1000 / 60) % 60);
-            var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-            var days = Math.floor(t / (1000 * 60 * 60 * 24));
+          function getTimeRemaining(endtime) {            
+            var now = new Date();
+            var seconds = (endtime.getTime() - now.getTime())/ 1000;                      
+            var days = Math.floor(seconds / (3600*24));
+            seconds  -= days*3600*24;
+            var hrs   = Math.floor(seconds / 3600);
+            seconds  -= hrs*3600;
+            var mnts = Math.floor(seconds / 60);
+            seconds  -= mnts*60;
+            seconds = Math.floor(seconds)            
             return {
-              'total': t,
+              'total': delta,
               'days': days,
               'hours': hours,
               'minutes': minutes,
