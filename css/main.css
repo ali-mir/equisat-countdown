@@ -132,13 +132,41 @@ input.input100 {
   transition: opacity 0.4s;
 }
 
+.days, .hours, .minutes, .seconds {
+  padding-top: 0px;
+}
 
 
-@media (max-width: 992px) {
+@media all and (max-width: 699px) {
   .alert-validate::before {
     visibility: visible;
     opacity: 1;
   }
+
+  .l1-txt1 {    
+    font-size: 30px !important;    
+  }
+  .m2-txt1 {   
+    font-size: 12px !important;    
+  }
+
+  .m2-txt2 {    
+    font-size: 13px !important;
+  }
+
+  .learnmore-button-container {
+    width:10%;  
+  }
+
+  .l1-txt2 {    
+    font-size: 30px !important;    
+  }
+
+  .learnmore-button {    
+    padding: 10px 20px !important;
+    font-size: 13px!important;
+  }
+
 }
 
 
@@ -238,7 +266,6 @@ input.input100 {
   font-size: 17px;
   border-width: 1px;  
   margin:0 auto;
-  
 }
 
 .learnmore-button:hover{
